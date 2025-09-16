@@ -1,11 +1,19 @@
 import PropType from "prop-types";
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { MovieContext } from "../context/MovieProvider";
 
 const MovieSearch = ({ title, data }) => {
   const { handleTrailer } = useContext(MovieContext);
+  const resultsRef = useRef(null);
+
+  useEffect(()=>{
+    if(data && data.length >0){
+      resultsRef.current?.scrollIntoView({behavior:"smooth"});
+    }
+  })
+
   return (
-    <div className=" text-white p-10 md-10">
+    <div ref={resultsRef} className=" text-white p-10 md-10">
       <h2 className=" uppercase text-xl mb-4">{title}</h2>
       <div className=" grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {data &&

@@ -9,7 +9,7 @@ function Header({ onSearch }) {
       <div className="flex items-center justify-between space-x-4">
         <h1 className="text-[30px] uppercase font-bold text-red-700">Movie</h1>
         <nav className="hidden sm:flex items-center space-x-4">
-          <a href="#" className="text-white">
+          <a href="/" className="text-white">
             Home
           </a>
           <a href="#" className="text-white">
@@ -29,7 +29,7 @@ function Header({ onSearch }) {
           value={textSearch}
         />
         <button
-          className="p-2 text-white bg-red-600 rounded w-[60px] sm:w-[80px] md:w-[110px] lg:w-[130px]"
+          className="p-2 text-white bg-red-600 rounded w-[60px] sm:w-[80px] md:w-[110px] lg:w-[130px] cursor-pointer"
           onClick={() => onSearch(textSearch)}
         >
           Search
