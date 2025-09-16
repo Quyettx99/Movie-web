@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, use, useEffect, useState } from "react";
 import PropType from "prop-types";
 import YouTube from "react-youtube";
 import Model from "react-modal";
@@ -20,20 +20,37 @@ const customStyles = {
 
 const getVideoSize =() =>{
   if(window.innerWidth <400){
-    return { height: "150", width: "300" };
+    return { height: "190", width: "290" };
   }else if(window.innerWidth < 768){
     return { height: "250", width: "400" };
   }else{
     return { height: "390", width: "640" };
   }
 }
-const opts = {
+function ResponsiveYouTube({ videoId }) {
+  const [opts,setOpts] = useState ({
   ...getVideoSize(),
   playerVars: {
     // https://developers.google.com/youtube/player_parameters
     autoplay: 1,
-  },
-};
+  }});
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOpts({
+        ...getVideoSize(),
+        playerVars: {
+    // https://developers.google.com/youtube/player_parameters
+    autoplay: 1,}
+      })
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  },[])
+  return <YouTube videoId={videoId} opts={opts} />
+}
+
+
 
 const MovieContext = createContext();
 
@@ -78,7 +95,7 @@ const MovieProvider = ({ children }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <YouTube videoId={trailerKey} opts={opts} />
+        <ResponsiveYouTube videoId={trailerKey} />
       </Model>
     </MovieContext.Provider>
   );

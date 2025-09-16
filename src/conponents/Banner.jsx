@@ -12,17 +12,17 @@ const Banner = () => {
             TV Show
           </p>
           <div className="flex flex-col space-y-4">
-            <h2 className="text-white text-[30px] lg:text-[40px] font-bold">
+            <h2 className="text-white text-[26px] sm:text[30px] lg:text-[40px] font-bold">
               Nghe nói em thích tôi
             </h2>
-            <div className="flex items-center lg:space-x-3 gap-1 ">
+            <div className="flex items-center w-[30px] h-[25px] lg:space-x-3 gap-1 ">
               <img src={IconRating} alt="rating" className="w-8 h-8" />
               <img src={IconRating} alt="rating" className="w-8 h-8" />
               <img src={IconRating} alt="rating" className="w-8 h-8" />
               <img src={IconRating} alt="rating" className="w-8 h-8" />
               <img src={IconRatingHalf} alt="rating-half" className="w-8 h-8" />
             </div>
-            <p className="text-white text-sm line-clamp-3 lg:line-clamp-none">
+            <p className="text-white text-sm line-clamp-2 sm:line-clamp-3 lg:line-clamp-none">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea facere
               a eos earum tempore natus aspernatur quam magnam autem ab libero
               enim, accusamus ipsa, repellat dolor voluptate quod recusandae
@@ -42,7 +42,7 @@ const Banner = () => {
           </div>
         </div>
         <div className="w-[50%] flex items-center justify-center">
-          <div className="w-[150px] h-[250px] lg:w-[300px] lg:h-[400px] relative group cursor-pointer">
+          <div className="w-[100px] h-[180px] lg:w-[300px] lg:h-[400px] relative group cursor-pointer">
             <img
               src={ImgTemp}
               alt="temp"

@@ -27,8 +27,8 @@ const responsive = {
 const MovieList = ({ title, data }) => {
   const { handleTrailer } = useContext(MovieContext);
   return (
-    <div className=" text-white p-10 md-10">
-      <h2 className=" uppercase text-xl mb-4">{title}</h2>
+    <div className=" text-white p-10 md-10 ">
+      <h2 className=" uppercase text-xl mb-4 ">{title}</h2>
       <Carousel
         responsive={responsive}
         className=" flex items-center space-x-4"
@@ -38,21 +38,21 @@ const MovieList = ({ title, data }) => {
           data.map((item) => (
             <div
               key={item.id}
-              className=" w-[200px] h-[300px] relative group"
+              className=" w-[140px] h-[250px] lg:w-[200px] lg:h-[280px]  relative group "
               onClick={() => handleTrailer(item.id)}
             >
               <div
                 className=" group-hover:scale-105 transition-transform duration-500 ease-in-out 
-          h-full w-full cursor-pointer"
+          h-full w-full cursor-pointer "
               >
-                <div className=" absolute top-0 left-0 w-full h-full bg-black/40"></div>
+                <div className=" absolute top-0 left-0 w-full h-full bg-black/40 "></div>
                 <img
                   src={`${import.meta.env.VITE_IMG_URL}${item.poster_path}`}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover "
                 />
-                <div className=" absolute bottom-4 left-2">
-                  <p className=" uppercase text-md ">
+                <div className="absolute bottom-1 left-0 w-[150px] lg:w-full bg-gradient-to-t from-black/80 to-transparent p-2">
+                  <p className=" uppercase text-xs lg:text-md ">
                     {item.title || item.original_title}
                   </p>
                 </div>
